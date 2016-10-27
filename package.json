@@ -1,21 +1,37 @@
 {
   "name": "telepat-cli",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A CLI tool for working with a Telepat instance",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "telepat"
-  ],
-  "author": {
-    "name": "Andrei Marinescu"
-  },
   "license": "Apache-2.0",
   "repository": "https://github.com/telepat-io/telepat-cli",
   "preferGlobal": true,
+  "author": {
+    "name": "Andrei Marinescu"
+  },
+  "maintainers": [
+    {
+      "name": "telepat",
+      "email": "dev@telepat.io"
+    }
+  ],
+  "keywords": [
+    "telepat"
+  ],
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
   "bin": {
-    "telepat": "index.js"
+    "telepat": "bin/index.js"
+  },
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+    "build": "npm run clean && npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
+    "test": "npm run build && mocha --compilers ts:ts-node/register --recursive test/**/*-spec.ts",
+    "watch": "npm run build -- --watch",
+    "watch:test": "npm run test -- --watch"
   },
   "dependencies": {
     "async": "^1.4.2",
@@ -24,10 +40,18 @@
     "telepat-js": "telepat-io/telepat-js#develop",
     "yargs": "^3.25.0"
   },
-  "maintainers": [
-    {
-      "name": "telepat",
-      "email": "dev@telepat.io"
-    }
-  ]
+  "devDependencies": {
+    "@types/chai": "3.4.30",
+    "@types/mocha": "2.2.29",
+    "@types/node": "6.0.31",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.1",
+    "rimraf": "^2.5.4",
+    "ts-node": "^1.2.2",
+    "tslint": "3.15.1",
+    "typescript": "2.0.3"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
 }

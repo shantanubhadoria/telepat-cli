@@ -1,4 +1,7 @@
+coverage/
 node_modules/
+typings/
+npm-debug.log
 settings-storage/
 .idea/
 _telepat/
