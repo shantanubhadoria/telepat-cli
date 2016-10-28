@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+'use strict';
 
-var TelepatCli = require("telepat-cli");
+let TelepatCli = require("../lib/").TelepatCli; // telepat-cli-ts
 TelepatCli.execute();

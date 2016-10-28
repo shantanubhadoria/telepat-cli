@@ -22,7 +22,7 @@
   ],
   "main": "lib/index.js",
   "bin": {
-    "telepat": "bin/index.js"
+    "telepat-test": "bin/index.js"
   },
   "typings": "lib/index.d.ts",
   "scripts": {
@@ -31,7 +31,8 @@
     "build": "npm run clean && npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
     "test": "npm run build && mocha --compilers ts:ts-node/register --recursive test/**/*-spec.ts",
     "watch": "npm run build -- --watch",
-    "watch:test": "npm run test -- --watch"
+    "watch:test": "npm run test -- --watch",
+    "execute": "echo Using TypeScript && tsc --version && tsc --pretty && node bin/index.js"
   },
   "dependencies": {
     "async": "^1.4.2",

@@ -12,3 +12,8 @@ export interface IEnvironment {
     apiKey: string;
     contextId: string;
 }
+export interface IPostOptions {
+    host: string;
+    headers: any;
+    [key: string]: any;
+}

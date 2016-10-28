@@ -1,3 +1,3 @@
-export default class TelepatCli {
+export declare class TelepatCli {
     static execute(): void;
 }
